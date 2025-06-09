@@ -30,7 +30,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="light_theme">
+      <body className="light_theme" suppressHydrationWarning={true}>
         {children}
       </body>
     </html>
