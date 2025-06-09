@@ -13,7 +13,7 @@ const valeurs = [
     image: Etudes,
     textes: [
       "Intégrer une classe préparatoire scientifique",
-      'Réaliser le concours des grandes écoles d'ingénieurs'
+      'Réaliser le concours des grandes écoles d\'ingénieurs'
     ]
   },
   {
@@ -21,7 +21,7 @@ const valeurs = [
     image: Ingenieur,
     textes: [
       'Contribuer des solutions innovantes',
-      'Obtenir un diplôme d'ingénieur'
+      'Obtenir un diplôme d\'ingénieur'
     ]
   },
   {
@@ -29,7 +29,7 @@ const valeurs = [
     image: Passions,
     textes: [
       'Jeux vidéo, sport, photographie et voyages',
-      'Apprendre de nouvelles choses et m'épanouir'
+      'Apprendre de nouvelles choses et m\'épanouir'
     ]
   },
   {
