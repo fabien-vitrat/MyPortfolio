@@ -1,70 +1,127 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 export default function Values() {
+    const valeurs = [
+        {
+            icon: "fa-solid fa-hand-holding-heart",
+            title: "BIENVEILLANCE",
+            descriptions: [
+                "Prends le temps d'écouter les autres",
+                "Participation à du bénévolat"
+            ],
+            side: "left"
+        },
+        {
+            icon: "fa-solid fa-people-group",
+            title: "TRAVAIL D'ÉQUIPE",
+            descriptions: [
+                "Réalisation de projets en équipe",
+                "Bonne gestion et réalisation"
+            ],
+            side: "right"
+        },
+        {
+            icon: "fa-solid fa-handshake-angle",
+            title: "ENGAGEMENT",
+            descriptions: [
+                "Donner du temps aux autres",
+                "Course de solidarité, Lourdes..."
+            ],
+            side: "left"
+        },
+        {
+            icon: "fa-regular fa-lightbulb",
+            title: "CURIOSITÉ",
+            descriptions: [
+                "Découvrir de nouvelles choses",
+                "Apprendre et voir de nouvelles choses"
+            ],
+            side: "right"
+        }
+    ];
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 }
+    };
+
+    const itemVariantsRight = {
+        hidden: { opacity: 0, x: 50 },
+        visible: { opacity: 1, x: 0 }
+    };
+
     return (
-        <section className='valeurs'>
+        <section className='valeurs' data-aos="fade-up">
             <div className="container">
-                <div className="section-title">
+                <motion.div 
+                    className="section-title"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
                     <h1>Fabien VITRAT</h1>
                     <h2>MES VALEURS</h2>
-                </div>
-                <div className="all">
-                    <div className="row gauche">
-                        <div className="col-6 valeur">
-                            <div className="fond">
-                                <i className="fa-solid fa-hand-holding-heart"></i>
-                                <h2>BIENVEILLANCE</h2>
+                </motion.div>
+                
+                <motion.div 
+                    className="all"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
+                    {valeurs.map((valeur, index) => (
+                        <motion.div 
+                            key={index}
+                            className={`row ${valeur.side === 'left' ? 'gauche' : 'droite'} ${index === valeurs.length - 1 ? 'derniere' : ''}`}
+                            variants={valeur.side === 'left' ? itemVariants : itemVariantsRight}
+                        >
+                            <div className="col-6 valeur">
+                                <motion.div 
+                                    className="fond"
+                                    whileHover={{ 
+                                        scale: 1.05,
+                                        boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
+                                    }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <motion.i 
+                                        className={valeur.icon}
+                                        whileHover={{ rotate: 360 }}
+                                        transition={{ duration: 0.6 }}
+                                    />
+                                    <h2>{valeur.title}</h2>
+                                </motion.div>
                             </div>
-                        </div>
-                        <div className="col-6 description">
-                            <p>Prends le temps d&apos;écouter les autres</p>
-                            <p>Participation à du bénévolat</p>
-                        </div>
-                    </div>
-                    <div className="row droite">
-                        <div className="col-6 description">
-                            <p>Réalisation de projets en équipe</p>
-                            <p>Bonne gestion et réalisation</p>
-                        </div>
-                        <div className="col-6 valeur">
-                            <div className="fond">
-                                <i className="fa-solid fa-people-group"></i>
-                                <h2>TRAVAIL D&apos;EQUIPE</h2>
+                            <div className="col-6 description">
+                                {valeur.descriptions.map((desc, i) => (
+                                    <motion.p
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: i * 0.2 }}
+                                        whileHover={{ x: valeur.side === 'left' ? 5 : -5 }}
+                                    >
+                                        {desc}
+                                    </motion.p>
+                                ))}
                             </div>
-                        </div>
-                    </div>
-                    <div className="row gauche">
-                        <div className="col-6 valeur">
-                            <div className="fond">
-                                <i className="fa-solid fa-handshake-angle"></i>
-                                <h2>ENGAGEMENT</h2>
-                            </div>
-                        </div>
-                        <div className="col-6 description">
-                            <p>Donner du temps aux autres</p>
-                            <p>Course de solidarité, Lourdes...</p>
-                        </div>
-                    </div>
-                    <div className="row droite derniere">
-                        <div className="col-6 description">
-                            <p>Découvrir de nouvelles choses</p>
-                            <p>Apprendre et voir de nouvelles choses</p>
-                        </div>
-                        <div className="col-6 valeur">
-                            <div className="fond">
-                                <i className="fa-regular fa-lightbulb"></i>
-                                <h2>CURIOSITE</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<div className="citation">
-                    <p>"Les valeurs sont le sens que l'on choisit de donner à la vie."</p>
-                    <p className="auteur">Jean-Paule Satres</p>
-                </div>*/
-                }
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </section>
-
-    )
+    );
 }

@@ -1,113 +1,184 @@
-
 .valeurs {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;}
+    justify-content: space-evenly;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
 
-    .valeurs .valeur,
-    .valeurs .description {
-        max-width: 90%;}
-        .valeurs .valeur h2 {
-            white-space: nowrap;}
-        .valeurs .gauche,
-        .valeurs .droite {
-            margin: 50px 0;}
-            .valeurs .derniere {
-                margin: 0;}
-    
-    
+.valeurs .valeur,
+.valeurs .description {
+    max-width: 90%;
+}
+
+.valeurs .valeur h2 {
+    white-space: nowrap;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.valeurs .gauche,
+.valeurs .droite {
+    margin: 50px 0;
+    opacity: 0;
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.valeurs .derniere {
+    margin-bottom: 0;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .valeurs .all {
-    display: contents;}
-.valeurs .gauche .valeur{
+    display: contents;
+}
+
+.valeurs .gauche .valeur {
     display: flex;
     justify-content: flex-end;
-    align-items: stretch;}
-.valeurs .droite .valeur{
+    align-items: stretch;
+}
+
+.valeurs .droite .valeur {
     display: flex;
     justify-content: flex-start;
-    align-items: stretch;}
-.valeurs .gauche .description{
+    align-items: stretch;
+}
+
+.valeurs .gauche .description {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;}
+    justify-content: center;
+}
+
 .valeurs .droite .description {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: center;}
-
-    .valeurs .valeur .fond{
-        padding: 15px 30px;
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        box-shadow: 0 0 20em -10px;}
-        .valeurs .valeur .fond i {
-            border-radius: 50px;
-            padding-right: 10px;
-            font-size: 20px;
-            padding-top: 2px;}
-        .valeurs .valeur .fond h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: bolder;}
-    .valeurs .description p{
-        margin: 0;
-        padding: 0;
-    }
-
-.citation {
-    border-radius: 5px;
-    width: 36rem;
-    padding: 10px;
-    box-shadow: 0 0 20em -30px;
-    margin: 0 auto;
+    justify-content: center;
 }
-.citation p {
+
+.valeurs .valeur .fond {
+    padding: 20px 35px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.valeurs .valeur .fond:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.valeurs .valeur .fond i {
+    border-radius: 50px;
+    padding-right: 15px;
+    font-size: 24px;
+    padding-top: 2px;
+    transition: all 0.3s ease;
+}
+
+.valeurs .valeur .fond h2 {
     margin: 0;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: white;
 }
-.citation .auteur {
-    font-style: italic;
-    text-align: end;}
+
+.valeurs .description p {
+    margin: 5px 0;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    color: #374151;
+    font-weight: 500;
+}
+
+.valeurs .description p:hover {
+    background: white;
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
 @media (max-width: 767px) {
+    .valeurs {
+        padding: 40px 0;
+    }
+    
     .valeurs .gauche,
     .valeurs .droite {
-        margin: 0px 0;}
-        .valeurs .derniere {
-            margin: 0;}
+        margin: 20px 0;
+    }
+    
     .valeurs .valeur .fond h2 {
-        font-size: 1.3rem;}
-        .valeurs .valeur .fond i {
-            font-size: 20px;}
+        font-size: 1.2rem;
+    }
+    
+    .valeurs .valeur .fond i {
+        font-size: 20px;
+        padding-right: 10px;
+    }
+    
+    .valeurs .valeur .fond {
+        padding: 15px 25px;
+    }
+    
     .valeurs .gauche {
         display: flex;
         flex-direction: column;
-        align-items: center;}
-        .valeurs .gauche .valeur {
-            display: flex;
-            justify-content: center;
-            margin: 0 0 7px 0;}
-        .valeurs .gauche .description {
-            display: flex;
-            align-items: center;}
+        align-items: center;
+    }
+    
+    .valeurs .gauche .valeur {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 15px 0;
+    }
+    
+    .valeurs .gauche .description {
+        display: flex;
+        align-items: center;
+    }
+    
     .valeurs .droite {
         display: flex;
         flex-direction: column-reverse;
-        align-items: center;}
-        .valeurs .droite .valeur {
-            display: flex;
-            justify-content: center;
-            margin: 0 0 7px 0;}
-        .valeurs .droite .description {
-            display: flex;
-            align-items: center;}
-    .citation {
-        width: 20rem;
-        text-align: center;}
+        align-items: center;
+    }
+    
+    .valeurs .droite .valeur {
+        display: flex;
+        justify-content: center;
+        margin: 15px 0 0 0;
+    }
+    
+    .valeurs .droite .description {
+        display: flex;
+        align-items: center;
+    }
+    
+    .valeurs .description p {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        text-align: center;
+    }
 }
-
-

@@ -9,7 +9,6 @@ import "@/styles/values.css";
 import "@/styles/goals.css";
 import "@/styles/course.css";
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,10 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-
       <head>
         <meta charSet="utf-8" />
-        <title>Fabien VITRAT</title>
+        <title>Fabien VITRAT - Portfolio</title>
+        <meta name="description" content="Portfolio de Fabien VITRAT - Étudiant passionné et développeur" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"

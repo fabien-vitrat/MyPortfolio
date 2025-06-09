@@ -1,51 +1,91 @@
 .course {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;}
+    justify-content: space-evenly;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+}
 
-    .course .parcours {
-        margin-top: 30px;
-        width: 100%;
-        padding: 1em 0;
-        position: relative;}
+.course .parcours {
+    margin-top: 30px;
+    width: 100%;
+    padding: 1em 0;
+    position: relative;
+}
 
-        
-    .parcours:after {
-        content: "";
-        display: table;
-        clear: both; }
-    .parcours:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 18px;
-        height: 100%;
-        width: 4px;
-        background: var(--back); }
+.parcours:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
+.parcours:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
 
-
-        
 .parcours-separation:before {
-    background: linear-gradient(180deg, var(--back) 40%,rgba(234,234,236,.45) 100%); }
-
+    background: linear-gradient(180deg, #667eea 0%, rgba(118, 75, 162, 0.3) 100%);
+}
 
 .parcours-experience {
     position: relative;
-    margin: 2em 0; }
-    .parcours-experience>div {
-        min-height: 1px; }
-    .parcours-experience:after {
-        content: "";
-        display: table;
-        clear: both; }
-    .parcours-experience:first-child {
-        margin-top: 0; }
-    .parcours-experience:last-child {
-        margin-bottom: 0; }
+    margin: 2em 0;
+    opacity: 0;
+    animation: slideInLeft 0.8s ease forwards;
+}
 
-        
+.parcours-experience:nth-child(even) {
+    animation: slideInRight 0.8s ease forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.parcours-experience > div {
+    min-height: 1px;
+}
+
+.parcours-experience:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.parcours-experience:first-child {
+    margin-top: 0;
+}
+
+.parcours-experience:last-child {
+    margin-bottom: 0;
+}
+
 .parcours-icon {
     position: absolute;
     top: 0;
@@ -56,107 +96,169 @@
     justify-content: center; 
     height: 40px;
     border-radius: 50%;
-    background: var(--back);
-    -webkit-box-shadow: 0 0 0 4px #fff,inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05);
-    box-shadow: 0 0 0 4px var(--back), inset 0 2px #dbc9ac, 0 3px 0 4px #dbc9ac; }
-    .parcours-icon i {
-        color: var(--seconde) !important;
-        font-size: 120%; }
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 0 0 4px white, 0 8px 20px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
 
+.parcours-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px white, 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+.parcours-icon i {
+    color: white !important;
+    font-size: 120%;
+}
 
 .parcours-infos {
     position: relative;
     margin-left: 60px;
-    border-radius: .5em;
-    padding: 1em;
-    background: var(--premiere);
-    color: #292929;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 4px 6px -2px rgba(0, 0, 0, 0.05); }
-    .parcours-infos:after {
-        content: "";
-        display: table;
-        clear: both; }
-    .parcours-infos .ecole-entreprise {
-        color: var(--bg-card);
-        font-weight: 600;
-        font-variant-caps: small-caps; }
-    .parcours-infos .diplome-entreprise {
-        padding: 0;
-        margin: 0;
-        padding-top: 5px; }
-    .parcours-infos .lieu-mention {
-        font-style: italic;
-        padding-top: 3px;
-        margin-bottom: 0;
-        font-size: small; }
-        .parcours-infos .parcours-date {
-            float: left;
-            opacity: .7 }
-            .parcours-infos .parcours-date p {
-                padding: 0;
-                margin: 0;
-                font-variant-caps: petite-caps;
-                font-size: large; }
-    .parcours-fleche {
-        content: "";
-        position: absolute;
-        top: 16px;
-        right: 100%;
-        height: 0;
-        width: 0;
-        border: 7px solid transparent;
-        border-right: 10px solid var(--back); }
-    
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #1f2937;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.parcours-infos:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.parcours-infos:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.parcours-infos .ecole-entreprise {
+    color: #2563eb;
+    font-weight: 700;
+    font-variant-caps: small-caps;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.parcours-infos .ecole-entreprise:hover {
+    color: #1d4ed8;
+}
+
+.parcours-infos .diplome-entreprise {
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.parcours-infos .lieu-mention {
+    font-style: italic;
+    padding-top: 3px;
+    margin-bottom: 0;
+    font-size: small;
+    color: #6b7280;
+}
+
+.parcours-infos .parcours-date {
+    float: left;
+    opacity: 0.8;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.parcours-infos .parcours-date:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.parcours-infos .parcours-date p {
+    padding: 0;
+    margin: 0;
+    font-variant-caps: petite-caps;
+}
+
+.parcours-fleche {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 8px solid transparent;
+    border-right: 12px solid rgba(255, 255, 255, 0.95);
+}
 
 @media only screen and (min-width: 1170px) {
     .parcours-colonnes:before {
         left: 50%;
-        margin-left: -2px }
+        margin-left: -2px;
+    }
+    
     .parcours-experience {
-        margin: 3.5em 0; }
-        .parcours-experience:first-child {
-            margin-top: 0; }
-        .parcours-experience:last-child {
-            margin-bottom: 0; } 
+        margin: 3.5em 0;
+    }
+    
+    .parcours-experience:first-child {
+        margin-top: 0;
+    }
+    
+    .parcours-experience:last-child {
+        margin-bottom: 0;
+    } 
+    
     .parcours-colonnes .parcours-icon {
-        width:60px;
+        width: 60px;
         height: 60px;
         left: 50%;
-        margin-left: -30px; }
+        margin-left: -30px;
+    }
+    
     .parcours-colonnes .parcours-infos {
-        margin-left:0;
-        padding: 1.5em;
-        width: 44% }
-        .parcours-colonnes .parcours-infos .parcours-date {
-            position: absolute;
-            width: 100%;
-            left: 124%;
-            top: 16px; }
+        margin-left: 0;
+        padding: 25px;
+        width: 44%;
+    }
+    
+    .parcours-colonnes .parcours-infos .parcours-date {
+        position: absolute;
+        width: 100%;
+        left: 124%;
+        top: 20px;
+        float: none;
+    }
+    
     .parcours-colonnes .parcours-fleche {
-        top: 24px;
+        top: 28px;
         left: 100%;
-        -webkit-transform: rotate(180deg);
-        transform: rotate(180deg); }
+        transform: rotate(180deg);
+    }
+    
     .parcours-colonnes .parcours-experience.parcours-element--right .parcours-infos,
     .parcours-colonnes .parcours-experience:nth-child(even):not(.parcours-element--left) .parcours-infos {
-        float: right; }
+        float: right;
+    }
+    
     .parcours-colonnes .parcours-experience.parcours-element--right .parcours-fleche,
     .parcours-colonnes .parcours-experience:nth-child(even):not(.parcours-element--left) .parcours-fleche {
-        top: 24px;
+        top: 28px;
         left: auto;
         right: 100%;
-        -webkit-transform: rotate(0);
-        transform: rotate(0); }
-    .parcours--one-column-right .parcours-experience.parcours-element--right .parcours-fleche,
-    .parcours--one-column-right .parcours-experience:nth-child(even):not(.parcours-element--left) .parcours-fleche {
-        top: 24px;
-        left: 100%;
-        right: auto;
-        -webkit-transform: rotate(0);
-        transform: rotate(0); }
+        transform: rotate(0);
+    }
+    
     .parcours-colonnes .parcours-experience.parcours-element--right .parcours-infos .parcours-date,
     .parcours-colonnes .parcours-experience:nth-child(even):not(.parcours-element--left) .parcours-infos .parcours-date {
         left: auto;
         right: 124%;
-        text-align: right; }
+        text-align: right;
+    }
 }

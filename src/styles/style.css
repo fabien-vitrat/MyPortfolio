@@ -1,83 +1,213 @@
 /* Google Fonts */
-/* Importation de la police Jost (Regular 400 / Medium 500 / Bold 700) */
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-/* Importation de la police IM Fell English SC (Regular 400) */
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
+/* Variables globales */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
 
-.section-title{
+/* Styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Titres de section */
+.section-title {
   text-align: center;
-  margin: 0px ;
+  margin: 0px;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;}
-  .section-title h2 {
-    font-weight: 700;
-    color: var(--ff-jost);
-    margin: 0px;
-    position: absolute;}
-  .section-title h1{
-    color: var(--back);
-    font-family: var(--ff-jockey);
-    font-weight: bold;
-    margin: 0px;}
+  height: 120px;
+  position: relative;
+}
 
+.section-title h2 {
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-    
-/* RESPONSIVE */
+.section-title h1 {
+  color: rgba(0,0,0,0.05);
+  font-family: 'IM Fell English SC', serif;
+  font-weight: bold;
+  margin: 0px;
+  position: absolute;
+  z-index: 1;
+}
 
-/* Reponsive pour max 768px */
+/* Animations globales */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Boutons globaux */
+.btn-primary {
+  background: var(--primary-gradient);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-gradient);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .container {
     max-width: 540px;
     width: 100%;
-    margin-inline: auto; }
-    .section-title h2 {
-      font-size: 9vw;}
-    .section-title h1{
-      font-size: 13vw;
-      position: absolute;
-      white-space: nowrap;}
+    margin-inline: auto;
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    height: 100px;
+  }
+  
+  .section-title h2 {
+    font-size: 8vw;
+  }
+  
+  .section-title h1 {
+    font-size: 12vw;
+    position: absolute;
+    white-space: nowrap;
+  }
 }
 
-/* Responsive pour 768 px */
 @media (min-width: 768px) {
-  .container { max-width: 720px; width: 100%; margin-inline: auto;}
+  .container { 
+    max-width: 720px; 
+    width: 100%; 
+    margin-inline: auto;
+  }
+  
   .section-title h2 {
-    font-size: 5vw;}
-  .section-title h1{
-    font-size: 9vw;}
+    font-size: 4.5vw;
+  }
+  
+  .section-title h1 {
+    font-size: 8vw;
+  }
 }
 
-/* Responsive pour 992px */  
 @media (min-width: 992px) {
-  .container { max-width: 960px; }
+  .container { 
+    max-width: 960px; 
+  }
+  
   .section-title h2 {
-    font-size: 3vw;}
-  .section-title h1{
-    font-size: 6.5vw;}
+    font-size: 3.2vw;
+  }
+  
+  .section-title h1 {
+    font-size: 6vw;
+  }
 }
   
-/* Responsive pour 1200 px */  
 @media (min-width: 1200px) {
-  .container { max-width: 1140px; }
+  .container { 
+    max-width: 1140px; 
+  }
+  
   .section-title h2 {
-    font-size: 2.8vw;}
-  .section-title h1{
-    font-size: 7vw;}
+    font-size: 2.5vw;
+  }
+  
+  .section-title h1 {
+    font-size: 5.5vw;
+  }
 }
 
-/* Responsive pour 1400px */
 @media (min-width: 1400px) {
-  .container { max-width: 1320px; }
+  .container { 
+    max-width: 1320px; 
+  }
+  
   .section-title h2 {
-    font-size: 2.5vw;}
-  .section-title h1{
-    font-size: 5vw;}
+    font-size: 2.2vw;
+  }
+  
+  .section-title h1 {
+    font-size: 4.5vw;
+  }
 }
-
-
-
-

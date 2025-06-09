@@ -1,79 +1,145 @@
 .goals {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;}
+    justify-content: space-evenly;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
 
-    .goals .row {
-        justify-content: center; }
+.goals .row {
+    justify-content: center;
+}
 
-    .goals .goal {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        gap: 30px; }
-        .goals .goal .goal-item {
-            border-radius: 10px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            display: flex;
-            box-shadow: 0 0 40em -40px;
-            padding: 0;
-            margin: 0; }
+.goals .goal {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
-            .goals .goal .goal-item .image-container {
-                position: relative;
-                width: 150px;
-                height: 100px;
-                overflow: hidden;
-                border-radius: 10px 0 0 10px; }
-                .goals .goal .goal-item .image-container .img-fluid {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block; }
-                .goals .goal .goal-item .image-container .overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.6);
-                    color: white;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: bold;
-                    font-size: 1.2rem;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                    border-radius: 10px 0 0 10px; }
-                .goals .goal .goal-item:hover .image-container .overlay {
-                    opacity: 1; }
+.goals .goal .goal-item {
+    border-radius: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    display: flex;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
 
-            .goals .goal .goal-item .goal-text {
-                padding: 0 30px 0 0;
-                flex: 1; }
-                .goals .goal .goal-item .goal-text p {
-                    margin: 0; }
+.goals .goal .goal-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 
+.goals .goal .goal-item .image-container {
+    position: relative;
+    width: 200px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 20px 0 0 20px;
+}
+
+.goals .goal .goal-item .image-container .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.goals .goal .goal-item:hover .image-container .img-fluid {
+    transform: scale(1.1);
+}
+
+.goals .goal .goal-item .image-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-radius: 20px 0 0 20px;
+    letter-spacing: 1px;
+}
+
+.goals .goal .goal-item:hover .image-container .overlay {
+    opacity: 1;
+}
+
+.goals .goal .goal-item .goal-text {
+    padding: 20px 30px;
+    flex: 1;
+}
+
+.goals .goal .goal-item .goal-text p {
+    margin: 8px 0;
+    color: #374151;
+    font-weight: 500;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.goals .goal .goal-item .goal-text p:hover {
+    color: #2563eb;
+    transform: translateX(5px);
+}
+
+.goals .goal .goal-item .goal-text p:first-child {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 1.1rem;
+}
 
 @media (max-width: 768px) {
+    .goals {
+        padding: 40px 0;
+    }
+    
     .goals .goal {
-        margin-top: 30px; }
+        margin-top: 30px;
+        gap: 25px;
+    }
+    
     .goals .goal .goal-item {
-        gap: 10px;
-        box-shadow: 0 0 9em -50px;
-        flex-direction: column; } 
+        gap: 0;
+        flex-direction: column;
+        border-radius: 15px;
+    } 
+    
     .goals .goal .goal-item .image-container {
         width: 100%;
-        height: 70px;
-        border-radius: 10px 10px 0 0; }
-        .goals .goal .goal-item .image-container .overlay {
-            border-radius: 10px 10px 0 0;
-            opacity: 1; }
+        height: 80px;
+        border-radius: 15px 15px 0 0;
+    }
+    
+    .goals .goal .goal-item .image-container .overlay {
+        border-radius: 15px 15px 0 0;
+        opacity: 1;
+        font-size: 1.1rem;
+    }
+    
     .goals .goal .goal-item .goal-text {
         text-align: center;
-        padding: 0 5px 5px; } }   
+        padding: 15px 20px;
+    }
+    
+    .goals .goal .goal-item .goal-text p {
+        font-size: 0.9rem;
+    }
+}
