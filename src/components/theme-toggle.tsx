@@ -25,22 +25,20 @@ export default function ThemeToggle() {
 
   return (
     <motion.button
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
-      className="fixed top-20 right-4 z-50 p-3 rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+      className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors"
     >
       <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
+        animate={{ x: isDark ? 28 : 2 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        className="absolute top-1 w-5 h-5 rounded-full bg-white shadow-md flex items-center justify-center"
       >
         {isDark ? (
-          <Moon className="w-5 h-5 text-blue-600" />
+          <Moon className="w-3 h-3 text-blue-600" />
         ) : (
-          <Sun className="w-5 h-5 text-yellow-500" />
+          <Sun className="w-3 h-3 text-yellow-500" />
         )}
       </motion.div>
     </motion.button>

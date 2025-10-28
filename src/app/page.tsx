@@ -11,7 +11,6 @@ import Values from "@/components/values";
 import Goals from "@/components/goals";
 import Course from "@/components/course";
 import Navigation from "@/components/navigation";
-import ThemeToggle from "@/components/theme-toggle";
 
 export default function Home() {
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <ThemeToggle />
       <main>
         <Welcome />
         <About />
