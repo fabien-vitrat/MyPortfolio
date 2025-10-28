@@ -79,49 +79,28 @@ export default function Navigation() {
             FV
           </motion.div>
           
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.id}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(item.id)}
-                className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                <i className={`fas ${item.icon}`}></i>
-                <span>{item.label}</span>
-              </motion.button>
-            ))}
-          </div>
-
           {/* Bouton hamburger */}
-          <div className="md:hidden">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
-            >
-              <div className="w-6 h-5 flex flex-col justify-between">
-                <motion.span
-                  animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                  className="w-full h-0.5 bg-current transition-all"
-                />
-                <motion.span
-                  animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className="w-full h-0.5 bg-current transition-all"
-                />
-                <motion.span
-                  animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                  className="w-full h-0.5 bg-current transition-all"
-                />
-              </div>
-            </motion.button>
-          </div>
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <motion.span
+                animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                className="w-full h-0.5 bg-current transition-all"
+              />
+              <motion.span
+                animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="w-full h-0.5 bg-current transition-all"
+              />
+              <motion.span
+                animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                className="w-full h-0.5 bg-current transition-all"
+              />
+            </div>
+          </motion.button>
         </div>
       </div>
 
@@ -135,7 +114,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              className="fixed inset-0 bg-black/50 z-40"
             />
 
             {/* Menu */}
@@ -144,7 +123,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-white dark:bg-gray-900 z-50 shadow-2xl md:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-white dark:bg-gray-900 z-50 shadow-2xl overflow-y-auto"
             >
               <div className="flex flex-col h-full p-6">
                 {/* Header avec bouton fermer */}
