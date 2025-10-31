@@ -10,6 +10,7 @@ import About from "@/components/about";
 import Values from "@/components/values";
 import Goals from "@/components/goals";
 import Course from "@/components/course";
+import Portfolio from "@/components/portfolio";
 import Navigation from "@/components/navigation";
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
         <Values />
         <Goals />
         <Course />
+        <Portfolio />
       </main>
     </>
   );
